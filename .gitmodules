@@ -7,6 +7,6 @@
 [submodule "lib/ultra"]
 	path = lib/ultra
 	url = https://github.com/domdere/ultra.git
-[submodule "lib/quantity"]
+[submodule "quantity-https"]
 	path = lib/quantity
-	url = git@github.com:irreverent-pixel-feats/quantity.git
+	url = https://github.com/irreverent-pixel-feats/quantity.git
