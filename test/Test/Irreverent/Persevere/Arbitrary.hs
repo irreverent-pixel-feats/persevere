@@ -36,6 +36,10 @@ instance Show ShowRetryPolicy where
 --show :: a -> String
   show (RP s _) = s
 
+instance Semigroup ShowRetryPolicy where
+--(<>) :: a -> a -> a
+  (<>) (RP sx x) (RP sy y) = RP (sx <> " <> " <> sy) (x <> y)
+
 instance Monoid ShowRetryPolicy where
 --mempty :: a
   mempty = RP "Empty" mempty
