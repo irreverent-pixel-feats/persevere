@@ -82,6 +82,10 @@ failureInterval (RetryErrorInstance _ dq _) = pure dq
 --
 newtype RetryPolicy = RetryPolicy { getRetryPolicy :: Int -> Maybe DurationQuantity }
 
+instance Semigroup RetryPolicy where
+--(<>) :: a -> a -> a
+  (RetryPolicy f) <> (RetryPolicy g) = RetryPolicy $ add <$> f <*> g
+
 instance Monoid RetryPolicy where
 --mempty :: a
   mempty = RetryPolicy . const . pure . fmicroseconds $ 0
